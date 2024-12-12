@@ -18,7 +18,7 @@ namespace restaurant.Service
             _clientRepository = clientRepository;
         }
 
-        public List<Client> GetClients()
+        public IEnumerable<Client> GetClients()
         {
             return _clientRepository.Get();
                

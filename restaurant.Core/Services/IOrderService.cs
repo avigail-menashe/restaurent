@@ -9,7 +9,7 @@ namespace restaurant.Core.Services
 {
     public interface IOrderService
     {
-        public List<Order> GetOrders();
+        public IEnumerable<Order> GetOrders();
         public Order GetOrderById(int id);
         public Order Post(Order value);
         public Order Update(int id, Order value);

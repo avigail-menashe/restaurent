@@ -20,9 +20,9 @@ namespace restaurant.Data.Repositories
             _context = context;
         }
 
-        public List<Order> GetAll()
+        public IEnumerable<Order> GetAll()
         { 
-            return _context.orders.ToList();
+            return _context.orders;
 
         }
 
@@ -37,6 +37,7 @@ namespace restaurant.Data.Repositories
         {
             order.OrderId = count++;
             _context.orders.Add(order);
+            _context.SaveChanges();
             return order;
         }
 
@@ -46,13 +47,25 @@ namespace restaurant.Data.Repositories
             _context.orders.ToList()[index].OrderDate =order.OrderDate;
             _context.orders.ToList()[index].OrderStatus = order.OrderStatus;
             _context.orders.ToList()[index].Totalcost =order.Totalcost;
+            _context.SaveChanges();
             return _context.orders.ToList()[index];
         }
 
         public void Delete(int id)
         {
             int index = _context.orders.ToList().FindIndex((Order o) => { return o.OrderId == id; });
+            _context.SaveChanges();
             _context.orders.ToList().RemoveAt(index);
         }
-      }
+
+        public Order GetById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Order Updade(int id, Order value)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

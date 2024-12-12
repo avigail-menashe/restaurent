@@ -18,9 +18,9 @@ namespace restaurant.Data.Repositories
             _context = context;
         }
 
-        public List<Client> Get()
+        public IEnumerable<Client> Get()
         {
-            return _context.clients.ToList();
+            return _context.clients;
         }
 
         public Client Get(int id) { 
@@ -31,6 +31,7 @@ namespace restaurant.Data.Repositories
 
         public Client Post(Client client) {
             _context.clients.Add(client);
+            _context.SaveChanges();
             return client;
         }
 
@@ -39,11 +40,13 @@ namespace restaurant.Data.Repositories
             int index = _context.clients.ToList().FindIndex((Client c) => { return c.Id == id; });
             _context.clients.ToList()[index].Name = client.Name;
             _context.clients.ToList()[index].Phone = client.Phone;
+            _context.SaveChanges();
             return _context.clients.ToList()[index];
         }
             public void Delete(int id)
         {
             var index = _context.clients.ToList().FindIndex(x => x.Id == id);
+            _context.SaveChanges();
             _context.clients.ToList().RemoveAt(index);
         
         }

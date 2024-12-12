@@ -25,7 +25,7 @@ builder.Services.AddScoped<IDeliveryService , DeliverService>();
 builder.Services.AddScoped<IDeliveryRepository , DeliveryRepository>();
 
 
-builder.Services.AddSingleton<DataContext>();
+builder.Services.AddDbContext<DataContext>();
 
 var app = builder.Build();
 

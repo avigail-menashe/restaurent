@@ -9,7 +9,7 @@ namespace restaurant.Core.Services
 {
     public interface IClientService
     {
-        public List<Client> GetClients();
+        public IEnumerable<Client> GetClients();
         public Client GetClientById(int id);
         public Client Post(Client value);
         public Client Put(int id, Client value);

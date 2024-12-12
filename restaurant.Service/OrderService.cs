@@ -18,14 +18,14 @@ namespace restaurant.Service
             _orderRepository = orderRepository;
         }
 
-        public List<Order> GetAll()
+        public IEnumerable<Order> GetOrders()
         {
-            return _orderRepository.GetOrders();
+            return _orderRepository.GetAll();
         }
 
-        public Order GetById(int id)
+        public Order GetOrderById(int id)
         {
-            return _orderRepository.GetOrderById(id);
+            return _orderRepository.GetById(id);
 
         }
 

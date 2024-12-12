@@ -9,7 +9,7 @@ namespace restaurant.Core.Repositories
 {
     public interface IOrderRepository
     {
-        public List<Order> GetAll();
+        public IEnumerable<Order> GetAll();
         public Order GetById(int id);
         public Order Post(Order value);
         public Order Updade(int id, Order value);

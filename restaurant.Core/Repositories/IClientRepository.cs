@@ -9,7 +9,7 @@ namespace restaurant.Core.Repositories
 {
     public interface IClientRepository
     {
-        public List<Client> Get();
+        public IEnumerable<Client> Get();
         public Client Get(int id);
         public Client Post(Client value);
         public Client Put(int id, Client value);
